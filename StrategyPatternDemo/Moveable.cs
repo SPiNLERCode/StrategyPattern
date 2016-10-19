@@ -9,23 +9,23 @@ namespace StrategyPatternDemo
 {
     public class Moveable
     {
-        private ISwim Swim;
+        private ISwim _swim;
 
         public string Name { get;set; }
 
         public string Move(int speed)
         {
-            return "I'm moving with "+speed.ToString()+ " kilometers per hour.";
+            return "I'm moving with "+speed+" kilometers per hour.";
         }
 
         public string TryToSwim()
         {
-            return this.Swim.Swim();
+            return this._swim.Swim();
         }
 
         public void SetSwimmingAbility(ISwim swimmingAbility)
         {
-            this.Swim = swimmingAbility;
+            this._swim = swimmingAbility;
         }
 }
 }

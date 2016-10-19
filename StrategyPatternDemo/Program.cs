@@ -9,8 +9,8 @@ namespace StrategyPatternDemo
 {
     class Program
     {
-        private Airplane airforceOne;
-        private Ship titanic;
+        private Airplane _airforceOne;
+        private Ship _titanic;
 
         static void Main(string[] args)
         {
@@ -18,32 +18,32 @@ namespace StrategyPatternDemo
             program.InitializeMovables();
 
             WriteDescription("Moving test");
-            WriteStatement(program.titanic.Name, program.titanic.Move(50));
-            WriteStatement(program.airforceOne.Name, program.airforceOne.Move(120));
+            WriteStatement(program._titanic.Name, program._titanic.Move(50));
+            WriteStatement(program._airforceOne.Name, program._airforceOne.Move(120));
 
             WriteDescription("Swimming test");
-            WriteStatement(program.titanic.Name, program.titanic.TryToSwim());
-            WriteStatement(program.airforceOne.Name, program.airforceOne.TryToSwim());
+            WriteStatement(program._titanic.Name, program._titanic.TryToSwim());
+            WriteStatement(program._airforceOne.Name, program._airforceOne.TryToSwim());
 
             program.Year1912();
 
             WriteDescription("Swimming test after 1912");
-            WriteStatement(program.titanic.Name, program.titanic.TryToSwim());
-            WriteStatement(program.airforceOne.Name, program.airforceOne.TryToSwim());
+            WriteStatement(program._titanic.Name, program._titanic.TryToSwim());
+            WriteStatement(program._airforceOne.Name, program._airforceOne.TryToSwim());
             Console.ReadKey();
         }
 
         private void Year1912()
         {
-            this.titanic.SetSwimmingAbility(new CantSwim());
+            this._titanic.SetSwimmingAbility(new CantSwim());
         }
 
         private void InitializeMovables()
         {
-            this.airforceOne = new Airplane() { Name ="AirforceOne"};
-            this.airforceOne.SetSwimmingAbility(new CantSwim());
-            this.titanic = new Ship() { Name = "Titanic" };
-            this.titanic.SetSwimmingAbility(new CanSwim());
+            this._airforceOne = new Airplane() { Name ="AirforceOne"};
+            this._airforceOne.SetSwimmingAbility(new CantSwim());
+            this._titanic = new Ship() { Name = "Titanic" };
+            this._titanic.SetSwimmingAbility(new CanSwim());
         }
 
         private static void WriteStatement(string author, string text)
